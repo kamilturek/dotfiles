@@ -12,11 +12,11 @@ show_help() {
 
 ensure_formula_installed() {
     FORMULA="$1"
-    if brew list | grep -q "FORMULA"; then
+    if brew list | grep -q "$FORMULA"; then
+        echo "$FORMULA already installed. Skipping."
+    else
         echo "Installing $FORMULA..."
         brew install "$FORMULA"
-    else
-        echo "$FORMULA already installed. Skipping."
     fi
 }
 
