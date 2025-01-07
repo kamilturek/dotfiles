@@ -45,3 +45,4 @@ if [ "$QUICK" == false ]; then
 fi
 
 link tmux
+link vim
