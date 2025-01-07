@@ -2,8 +2,46 @@
 
 set -euo pipefail
 
-ROOT=$PWD/$(dirname "$0")
 
-ln -f -s "$ROOT"/tmux.conf "$HOME"/.tmux.conf
-echo "tmux.conf installed."
+QUICK=false
 
+for arg in "$@"; do
+    case $arg in
+        --quick)
+            QUICK=true
+            shift
+            ;;
+    esac
+done
+
+ensure_formula_installed() {
+    FORMULA="$1"
+    if brew list | grep -q "FORMULA"; then
+        echo "Installing $FORMULA..."
+        brew install "$FORMULA"
+    else
+        echo "$FORMULA already installed. Skipping."
+    fi
+}
+
+ensure_tpm_installed() {
+    TPM_DIR="$HOME/.tmux/plugins/tpm"
+    if [ -d "$TPM_DIR" ]; then
+        echo "tpm already installed. Skipping."
+    else
+        echo "Installing tpm..."
+        git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+    fi
+}
+
+link() {
+    echo "Linking tmux dotfiles..."
+    stow $1
+}
+
+if [ "$QUICK" == false ]; then
+    ensure_formula_installed tmux
+    ensure_tpm_installed
+fi
+
+link tmux
