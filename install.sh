@@ -42,6 +42,7 @@ link() {
 if [ "$QUICK" == false ]; then
     ensure_formula_installed tmux
     ensure_tpm_installed
+    ensure_formula_installed stow
 fi
 
 link tmux
