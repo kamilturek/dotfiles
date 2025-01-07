@@ -35,8 +35,8 @@ ensure_tpm_installed() {
 }
 
 link() {
-    echo "Linking tmux dotfiles..."
-    stow $1
+    echo "Linking $1 dotfiles..."
+    stow $1 -t $HOME
 }
 
 if [ "$QUICK" == false ]; then
