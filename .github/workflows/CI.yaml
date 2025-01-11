@@ -6,9 +6,13 @@ on:
     branches:
       - main
 
+permissions: {}
+
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
