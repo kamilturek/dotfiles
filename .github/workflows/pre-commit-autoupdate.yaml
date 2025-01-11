@@ -1,9 +1,9 @@
 name: pre-commit autoupdate
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 21 * * 5"
-  pull_request:
 
 permissions: {}
 
@@ -30,8 +30,8 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         with:
-          base: master
           body: This PR updates pre-commit hooks 🚀
           branch: pre-commit-autoupdate
+          commit-message: Update pre-commit hooks
           delete-branch: true
           title: Update pre-commit hooks
