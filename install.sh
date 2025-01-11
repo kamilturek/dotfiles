@@ -68,6 +68,7 @@ if [ "$QUICK" == false ]; then
     ensure_tpm_installed
     ensure_formula_installed stow
     ensure_z_installed
+    ensure_formula_installed starship
 fi
 
 link tmux
