@@ -30,6 +30,16 @@ ensure_tpm_installed() {
     fi
 }
 
+ensure_z_installed() {
+    Z_PATH="$HOME/.z.sh"
+    if [ -f "$Z_PATH" ]; then
+        echo "z already installed. Skipping."
+    else
+        echo "Installing z..."
+        curl -o $ZPATH https://raw.githubusercontent.com/rupa/z/refs/heads/master/z.sh
+    fi
+}
+
 link() {
     echo "Linking $1 dotfiles..."
     stow $1 -t $HOME
@@ -57,7 +67,10 @@ if [ "$QUICK" == false ]; then
     ensure_formula_installed tmux
     ensure_tpm_installed
     ensure_formula_installed stow
+    ensure_z_installed
 fi
 
 link tmux
 link vim
+link starship
+link zsh
