@@ -30,6 +30,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         with:
+          base: master
           body: This PR updates pre-commit hooks 🚀
           branch: pre-commit-autoupdate
           delete-branch: true
