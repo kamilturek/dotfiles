@@ -14,7 +14,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -25,5 +24,13 @@ jobs:
       - name: Install pre-commit
         run: pip install pre-commit
 
-      - name: Run `pre-commit autoupdate`
+      - name: Run pre-commit autoupdate
         run: pre-commit autoupdate
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          body: This PR updates pre-commit hooks 🚀
+          branch: pre-commit-autoupdate
+          delete-branch: true
+          title: Update pre-commit hooks
