@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+        args:
+          - --assume-in-merge
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-yaml
+      - id: detect-aws-credentials
+        args:
+          - --allow-missing-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: file-contents-sorter
+        files: Brewfile
+        args:
+          - --unique
+      - id: mixed-line-ending
+      - id: trailing-whitespace
