@@ -1,8 +1,3 @@
-# tmux Autostart
-if [ -z "$TMUX" ]; then
-    tmux attach -t TMUX || tmux new -s TMUX
-fi
-
 # Starship
 eval "$(starship init zsh)"
 
