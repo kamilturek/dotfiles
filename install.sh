@@ -42,7 +42,7 @@ ensure_z_installed() {
 
 link() {
     echo "Linking $1 dotfiles..."
-    stow $1 -t $HOME
+    stow -t $HOME --adopt $1
 }
 
 while [[ "$1" != "" ]]; do
