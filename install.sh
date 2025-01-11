@@ -36,7 +36,7 @@ ensure_z_installed() {
         echo "z already installed. Skipping."
     else
         echo "Installing z..."
-        curl -o $ZPATH https://raw.githubusercontent.com/rupa/z/refs/heads/master/z.sh
+        curl -o $Z_PATH https://raw.githubusercontent.com/rupa/z/refs/heads/master/z.sh
     fi
 }
 
