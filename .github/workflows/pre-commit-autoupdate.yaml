@@ -3,6 +3,7 @@ name: pre-commit autoupdate
 on:
   schedule:
     - cron: "0 21 * * 5"
+  pull_request:
 
 permissions: {}
 
