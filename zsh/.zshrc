@@ -17,3 +17,5 @@ source ~/.fzfrc
 
 # z
 source ~/.z.sh
+
+. "$HOME/.local/bin/env"
